@@ -1,0 +1,80 @@
+'use client'
+import { useState } from "react";
+import { Section, SectionHeading, SectionSubHeading } from "./SectionUtils";
+
+function ExperienceItem({ company, title, dates, description }: { company: string, title: string, dates: string, description: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    open ?
+    <li className="mb-4">
+      <div className="flex items-center">
+        <div className="box-border border-t-16 border-transparent border-t-black border-l-8 border-r-8 h-0" onClick={e => {setOpen(false)}}></div>
+        <h3 className="text-xl font-bold mr-auto ml-2">{company} - <span className="text-[1rem]">{title}</span></h3>
+        <p className="italic text-[0.75rem]">{dates}</p>
+      </div>
+      <p className="indent-8">{description}</p>
+    </li> 
+    :
+    <li>
+      <div className="flex items-center">
+        <div className="box-border border-l-16 border-transparent border-l-black border-t-8 border-b-8 h-0" onClick={e => {setOpen(true)}}></div>
+        <h3 className="text-xl font-bold mr-auto ml-2">{company} - <span className="text-[1rem]">{title}</span></h3>
+      </div>
+    </li>
+  );
+}
+
+export default function AboutMe() {
+  return (
+    <Section id="about-me">
+      <SectionHeading>About Me</SectionHeading>
+      <div>
+        <SectionSubHeading>Skills</SectionSubHeading>
+        <ul>
+          
+        </ul>
+      </div>
+      <div>
+        <SectionSubHeading>Education</SectionSubHeading>
+        <ul>
+
+        </ul>
+      </div>
+      <div>
+        <SectionSubHeading>Experience</SectionSubHeading>
+        <ul>
+          <ExperienceItem 
+            company="Horizon School Division" 
+            title="Casual IT Technician" 
+            dates="Nov. 2024 - Jan. 2025"
+            description="I was recalled on a casual basis to assist the tech team/IT department during a leave.  My tasks have been similar to the summer position.  I have completed support tickets, repaired chromebooks/computers and projectors, delivered technology orders, and explained tech problems to staff."
+          />
+          <ExperienceItem 
+            company="Horizon School Division"
+            title="IT Summer Student"
+            dates="May 2024 - Aug. 2024"
+            description="I worked with the tech team/IT department and did  various tasks including repairing chromebooks/computers, answering questions about technology, testing technology, terminated RJ45 cables (ethernet), and toning/tracing ethernet cables, installing windows 10, organizing the tech workroom, installing viewsonic boards and troubleshooting computer problems."
+          />
+          <ExperienceItem 
+            company="The Church of Jesus Christ of Latter-Day Saints"
+            title="Service Missionary"
+            dates="Nov. 2021 - Nov. 2023"
+            description="I volunteered at multiple places, including the Interfaith Food Bank, Clearview Lodge, the LDS Bishop’s Storehouse and the Lethbridge Soup Kitchen. On average, I volunteered for 20-30 hours each week. During this time, I stocked shelves, helped customers and operated a forklift."
+          />
+          <ExperienceItem 
+            company="Bonduelle"
+            title="Pea/Corn Combine Operator"
+            dates="July 2020 - Aug. 2020 & July 2021 - Oct. 2021 (seasonal)"
+            description="I worked 12 hour shifts during the summer to operate pea combines and corn combines to harvest peas/corn."
+          />
+          <ExperienceItem 
+            company="Lantic - Roger's Sugar"
+            title="General Laborer"
+            dates="Sept. 2020 - Feb. 2021 (seasonal)"
+            description="I worked 8 hour shifts during the sugar beet campaign. I was mostly cleaning or packaging icing sugar. I was trained to use a fork-lift, but the certificate has expired."
+          />
+        </ul>
+      </div>
+    </Section>
+  );
+}

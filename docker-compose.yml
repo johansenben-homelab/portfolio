@@ -1,0 +1,14 @@
+services: 
+  portfolio:
+    build:
+      context: ./
+    ports:
+      - "${FORWARD_PORT}:${PORT}"
+    environment:
+      PORT: ${PORT}
+      FORWARD_PORT: ${FORWARD_PORT}
+    restart: unless-stopped
+    command: sh -c "echo App running on ${FORWARD_PORT}:${PORT} && npx next start -p ${PORT}"
+
+#docker-compose up --build
+#docker-compose down
