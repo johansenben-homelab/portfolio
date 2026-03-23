@@ -24,6 +24,28 @@ function ExperienceItem({ company, title, dates, description }: { company: strin
   );
 }
 
+function EducationItem({ school, location, degree, dates, description }: { school: string, location?: string, degree: string, dates?: string, description: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    open ?
+    <li className="mb-4">
+      <div className="flex items-center">
+        <div className="box-border border-t-16 border-transparent border-t-black border-l-8 border-r-8 h-0" onClick={e => {setOpen(false)}}></div>
+        <h3 className="text-xl font-bold mr-auto ml-2">{school}{ location && ',' } {location} - <span className="text-[1rem]">{degree}</span></h3>
+      </div>
+      <p className="italic text-[0.75rem]">{dates}</p>
+      <p className="indent-8">{description}</p>
+    </li> 
+    :
+    <li>
+      <div className="flex items-center">
+        <div className="box-border border-l-16 border-transparent border-l-black border-t-8 border-b-8 h-0" onClick={e => {setOpen(true)}}></div>
+        <h3 className="text-xl font-bold mr-auto ml-2">{school}{ location && ',' } {location} - <span className="text-[1rem]">{degree}</span></h3>
+      </div>
+    </li>
+  );
+}
+
 export default function AboutMe() {
   return (
     <Section id="about-me">
@@ -37,7 +59,9 @@ export default function AboutMe() {
       <div>
         <SectionSubHeading>Education</SectionSubHeading>
         <ul>
-
+          <EducationItem school="WR Myers" location="Taber, AB" dates="Graduated 2020" degree="High School Diploma" description="" />
+          <EducationItem school="BYU Pathways" location="Online" dates="Jan. 2024 - Now" degree="Software Development" description="I have completed my Associates of Software Development and am planning to complete my Bachelors of Software Development in late 2026 or early 2027." />
+          <EducationItem school="Self Taught" degree="Programming & IT" description="I have taught myself to use programming languages, frameworks and operating systems like C++, Java, Python, C#, Rust, Javascript, Typescript, HTML, CSS, Tailwind CSS, Express JS, React JS, Next JS, Docker, Windows 10/11, Linux, Mac OS and others. I have also learned about servers and networking to use fore my homelab server." />
         </ul>
       </div>
       <div>
