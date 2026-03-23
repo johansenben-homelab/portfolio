@@ -25,7 +25,7 @@ export default function Home() {
 
       <ul className="flex gap-4 mt-8 mb-16 justify-center">
         <SectionLink name="About Me" route="#about-me" />
-        <SectionLink name="Contact Me" route="#contact" />
+        {/* <SectionLink name="Contact Me" route="#contact" /> */}
         <SectionLink name="View My Projects" route="#projects" />
       </ul>
 
