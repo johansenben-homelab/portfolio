@@ -61,6 +61,22 @@ export default function Projects() {
           siteLink="https://portfolio-ben.pljohansenfam.work"
           githubLink="https://github.com/johansenben-homelab/portfolio"
         />
+        <Project 
+          name="2 Player Chess"
+          description="Coming Soon"
+        />
+        <Project 
+          name="Sudoku"
+          description="Coming Soon"
+        />
+        <Project 
+          name="Rubik's Cube"
+          description="Coming Soon"
+        />
+        <Project 
+          name="Tetris"
+          description="Coming Soon"
+        />
       </ul>
     </Section>
   );

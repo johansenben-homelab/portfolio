@@ -6,11 +6,16 @@ export function Section({ id, children }: { id: string, children?: React.ReactNo
 }
 export function SectionHeading({ children }: { children?: React.ReactNode }) {
   return (
-    <h2 className="font-bold text-2xl underline my-4">{children}</h2>
+    <h2 className="font-bold text-3xl underline my-4">{children}</h2>
   );
 }
 export function SectionSubHeading({ children }: { children?: React.ReactNode }) {
   return (
     <h3 className="font-bold text-xl my-4">{children}</h3>
+  );
+}
+export function ComingSoon(){
+  return (
+    <p className="font-bold">Coming Soon!</p>
   );
 }

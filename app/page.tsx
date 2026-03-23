@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 function SectionLink({ name, route }: { name: string, route: string }) {
   return (
-    <li className="p-2 border-2">
-      <a href={route}>{name}</a>
+    <li>
+      <a className="p-2 border-2" href={route}>{name}</a>
     </li>
   );
 }

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { Section, SectionHeading, SectionSubHeading } from "./SectionUtils";
+import { ComingSoon, Section, SectionHeading, SectionSubHeading } from "./SectionUtils";
 
 function ExperienceItem({ company, title, dates, description }: { company: string, title: string, dates: string, description: string }) {
   const [open, setOpen] = useState(false);
@@ -50,15 +50,52 @@ export default function AboutMe() {
   return (
     <Section id="about-me">
       <SectionHeading>About Me</SectionHeading>
+      <p className="ml-4">
+        I started learning C++ in 2020 after I graduated from high school as a way to spend my time. Since then, I have taught myself a lot of different programming languages and tools. I am currently working on a Software Development Degree throgh the BYU Pathways program. I have completed my Associates degree and I'm planning be done my bachelors in the next year. I have also spent a lot of time learning about computer hardware and IT and have set up a homelab server running on a GMKtec G3 Plus mini pc that is exposed using a cloudflare tunnel and host most of my projects (including my portfolio).
+      </p>
       <div>
-        <SectionSubHeading>Skills</SectionSubHeading>
-        <ul>
-          
+        <SectionSubHeading>Skills & Qualities</SectionSubHeading>
+        <ul className="ml-8 list-disc grid lg:grid-cols-3 md:grid-cols-2">
+          {
+            [
+              "Hard Working",
+              "Detail Oriented",
+              "Punctual",
+              "Dependable",
+              "Fork Lift"
+            ].map((skill,i) => <li key={`skill${i}`}>{skill}</li>)
+          }
+        </ul>
+        <SectionSubHeading>Technology Skills</SectionSubHeading>
+        <ul className="ml-8 list-disc grid lg:grid-cols-3 md:grid-cols-2">
+          {
+            [
+              "C/C++",
+              "Python",
+              "Javascript",
+              "Typescript",
+              "HTML",
+              "CSS",
+              "Tailwind CSS",
+              "Express JS",
+              "React JS",
+              "Next JS",
+              "C#",
+              "Rust",
+              "Java",
+              "Docker",
+              "Windows 10/11",
+              "Linux",
+              "Mac OS",
+              "Android",
+              "Chromebook/Computer Repair"
+            ].map((skill,i) => <li key={`tech-skill${i}`}>{skill}</li>)
+          }
         </ul>
       </div>
       <div>
         <SectionSubHeading>Education</SectionSubHeading>
-        <ul>
+        <ul className="ml-4">
           <EducationItem school="WR Myers" location="Taber, AB" dates="Graduated 2020" degree="High School Diploma" description="" />
           <EducationItem school="BYU Pathways" location="Online" dates="Jan. 2024 - Now" degree="Software Development" description="I have completed my Associates of Software Development and am planning to complete my Bachelors of Software Development in late 2026 or early 2027." />
           <EducationItem school="Self Taught" degree="Programming & IT" description="I have taught myself to use programming languages, frameworks and operating systems like C++, Java, Python, C#, Rust, Javascript, Typescript, HTML, CSS, Tailwind CSS, Express JS, React JS, Next JS, Docker, Windows 10/11, Linux, Mac OS and others. I have also learned about servers and networking to use fore my homelab server." />
@@ -66,7 +103,7 @@ export default function AboutMe() {
       </div>
       <div>
         <SectionSubHeading>Experience</SectionSubHeading>
-        <ul>
+        <ul className="ml-4">
           <ExperienceItem 
             company="Horizon School Division" 
             title="Casual IT Technician" 
