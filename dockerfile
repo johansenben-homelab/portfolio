@@ -11,4 +11,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["sh", "-c", "npm start -p 3000"]
+CMD ["sh", "-c", "npx next start -p 3000"]
