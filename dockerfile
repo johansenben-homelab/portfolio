@@ -11,6 +11,4 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE $FORWARD_PORT
-
-CMD ["sh", "-c", "npx next start -p $PORT"]
+CMD ["sh", "-c", "npx next start"]

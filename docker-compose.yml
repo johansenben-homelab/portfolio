@@ -2,13 +2,19 @@ services:
   portfolio:
     build:
       context: ./
-    ports:
-      - "${FORWARD_PORT}:${PORT}"
     environment:
-      PORT: ${PORT}
-      FORWARD_PORT: ${FORWARD_PORT}
     restart: unless-stopped
-    command: sh -c "echo App running on ${FORWARD_PORT}:${PORT} && npx next start -p ${PORT}"
+    networks:
+      - sites
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portfolio.rule=Host(`portfolio-ben.pljohansenfam.work`)
+      - traefik.http.routers.portfolio.entrypoints=web
+      - traefik.http.services.portfolio.loadbalancer.server.port=9000
+      - traefik.docker.network=sites
+networks:
+  sites:
+    external: true
 
 #docker-compose up --build
 #docker-compose down
