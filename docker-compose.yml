@@ -2,7 +2,6 @@ services:
   portfolio:
     build:
       context: ./
-    environment:
     restart: unless-stopped
     networks:
       - sites
